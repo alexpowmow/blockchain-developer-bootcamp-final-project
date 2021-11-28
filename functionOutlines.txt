@@ -1,0 +1,30 @@
+FUNCTION OUTLINES:
+
+
+  function getZoodle() public view returns(uint256){
+    
+  }
+
+  function getUpgrades() public view returns(uint256){
+    
+  }
+
+  function saveProfile(uint256 zoodleAccrued, uint256 upgradesAccrued) public{
+ 
+  }
+
+  function purchaseItem1() public{
+
+  }
+
+  function purchaseItem2() public{
+
+  }
+
+  function purchaseItem3() public{
+
+  }
+
+  function purchaseItem4() public{
+
+  }

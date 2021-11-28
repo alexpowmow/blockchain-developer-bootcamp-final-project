@@ -2,4 +2,4 @@
 Final project for the Ethereum developer bootcamp 2021
 
 
-I am thinking for my final project to be a polling application. Its interface will appear like the message board of twitter, however, instead of twitter it will be polls. Polls can be uploaded by users and voted on by an address only 1 time. In order to prevent one individual spamming his response from 1000 different addresses it will most likely require a small toll to place your vote. The goal of this porject is to create a transparent polling service that is run by the people. This way we know that we can trust the final results. 
+I originally posted an idea but when it came time to develop I changed my mind. The new idea I came up with is called Zoodle Clicker Dapp. This is a simple blockchain game. The user will use a clicker to accumulate Zoodle. A smart contract will be in charge of storing the users progress on chain. Everyitme a user wants to purchase an upgrade, it is logged in the blockchain. If a user wants to save or load their progress it is also logged in the blockchain. This allows the user to save their data, close out the tab and load back up their progress at a new point in time.

@@ -40,101 +40,101 @@ mmEnable.onclick = async () =>{
 }
 
 
-const testContractAddress = '0x9D0dB8240a2C117Ff8Eb1Daf80182Fcd11A08103';
+const testContractAddress = '0x01bd6231e7F90c0BA5c9d146ABbb669907046c60';
 const testContractAbi = [
-    {
-        "inputs": [],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-      },
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
       {
-        "inputs": [],
-        "name": "owner",
-        "outputs": [
-          {
-            "internalType": "address",
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function",
-        "constant": true
-      },
-      {
-        "inputs": [],
-        "name": "getZoodle",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function",
-        "constant": true
-      },
-      {
-        "inputs": [],
-        "name": "getUpgrades",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function",
-        "constant": true
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "zoodleAccrued",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint256",
-            "name": "upgradesAccrued",
-            "type": "uint256"
-          }
-        ],
-        "name": "saveProfile",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "purchaseItem1",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "purchaseItem2",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "purchaseItem3",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "purchaseItem4",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "getZoodle",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "getUpgrades",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "zoodleAccrued",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "upgradesAccrued",
+        "type": "uint256"
+      }
+    ],
+    "name": "saveProfile",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "purchaseItem1",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "purchaseItem2",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "purchaseItem3",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "purchaseItem4",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
   ];
 
 const testContract = new web3.eth.Contract(testContractAbi, testContractAddress);

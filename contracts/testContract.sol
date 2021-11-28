@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract testContract {
+contract TestContract {
   address public owner;
   
   mapping(address => uint) private upgradeTotal;

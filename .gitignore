@@ -1,2 +1,4 @@
 .npm/
 .config/
+.env
+.DS_Store

@@ -1,0 +1,93 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    background-color: green;
+}
+
+#header-nav{
+background-color:azure;
+border-radius: 0;
+border: 0;
+align: right;
+}
+.navbar-brand{
+    padding-top: 25px;
+}
+
+
+.container {
+	border: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+    
+}
+
+.navbar-brand h1 {
+    font-family:'Times New Roman', Times, serif;
+    color:black;
+    font-size: 1.5em;
+    text-transform:uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #222;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: .75;
+    
+    
+}
+
+#chicken, #beef, #sushi{
+    background-color:bisque;
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 12px;
+    text-align: justify;
+}
+
+#MenuHeader{
+    font-family:'Times New Roman', Times, serif;
+    color:black;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+	.row > div > article {
+		width: 80%;
+		margin: 20px auto 0;
+	}
+}
+
+  
+  
+  .navbar-header button.navbar-toggle {
+    clear: both;
+    margin-top: -30px;
+    position: relative;
+    right:10px;
+    
+  }
+  
+  
+  .nav-brand {
+    color:black;
+    font-size: 1.5em;
+  }
+  
+  #nav-list {
+    color: black;
+  }
+  
+  hr {
+    border: 1px solid black;
+  }
+  
+  .ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+}

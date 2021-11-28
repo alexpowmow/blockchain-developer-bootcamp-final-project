@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZOODLE INDUSTRIES</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap-grid.css"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="dap.css">
+  <!-- CSS only -->
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  
+
+</head>
+<body>
+    <nav id = "topOfPage" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#mainHeader">ZOODLE INDUSTRIES</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+              <a class="nav-link" href="#itemShop">Item Shop</a>
+              <!-- <a class="nav-link disabled">Disabled</a> -->
+            </div>
+            <button class="notMetaConnected" role="button" id = "mm-connect" >Connect to MetaMask </button>
+          </div>
+        </div>
+      </nav>
+    <div class="header">
+        <h1 id= "mainHeader">Zoodle Clicker Dapp</h1>
+        <p class = "fontDefault"> You are the greatest explorer known to man. You have just discovered Zoodle, a rock capable of producing mass amounts of energy without emitting pollutants.</p>
+        <!-- <p class = "fontDefault"> Mine Zoodle and become RICH!!!</p> -->
+    </div>
+ 
+  <!-- <div id = "mm-detected"> </div> -->
+
+
+
+    <div id = "Home" class="container">
+        <div class = "row">
+            <div class = "col-6 text-center" id = "zoodleEarnFrame">
+                <h2 id = "zoodleHeader" class = "text-center">Earn Zoodle</h2>
+                <img id = "minerImage" src= "images/minerImage.png" alt= "Miner Image" >
+                <span>Mining Power = </span>
+                <span id= "miningPower"> 0 <br></span>
+                <button id = "clicka" type="button" class="btn btn-dark btn-rounded">Click to Mine</button>
+                
+            </div>
+            <div class = "col-4 offset-1">
+                <h2 id = "progressHeader" class = "text-center">Save Progress!</h2>
+                <div class = "progressDiv">
+                    <h4 class = "text-center">Total Zoodle Accrued</h4>
+                    <p id = "totalCount">0</p>
+                </div>
+                <div class = "progressDiv">
+                    <h4 class = "text-center">Save Progress</h4>
+                    <button id = "setZoodleButton" type="button" class="btn btn-dark btn-rounded">Save</button>
+                </div>
+
+                <div class = "progressDiv">
+                    <h4 class = "text-center">Load Progress</h4>
+                    <button id = "getZoodleButton" type="button" class="btn btn-dark btn-rounded">Load</button>
+                </div>
+                
+            </div>
+            
+
+        </div>
+    </div>
+
+
+  
+    <div class="container px-4">
+        <h2 class = "text-center" id = "itemShop">Item Shop</h2>
+            <div class="row gx-5 gy-5">
+                <div class="col-6 ">
+                    <div class="p-3 bg-light" id = "Item1">
+                    <h4>Improve Axe Strength</h4>
+                    <p>Price= 100 Zoodle</p>
+                    <button type="button" class="btn btn-dark btn-rounded" id = "axeStrength">Purchase</button>
+                    </div>
+                </div>
+                <div class="col-6 ">
+                    <div class="p-3 bg-light" id = "Item2">
+                        <h4>Build New Drill</h4>
+                        <p>Price= 1,000 Zoodle</p>
+                        <button type="button" class="btn btn-dark btn-rounded" id = "drillStrength">Purchase</button>
+                    </div>
+                </div>
+                <div class="col-6 ">
+                    <div class="p-3 bg-light" id = "Item3">
+                    <h4>Build New Housing</h4>
+                    <p>Price= 100,000 Zoodle</p>
+                    <button type="button" class="btn btn-dark btn-rounded" id = "housingCapacity">Purchase</button>
+                </div>
+                </div>
+                <div class="col-6 ">
+                    <div class="p-3 bg-light" id = "Item4">
+                    <h4>Improve Transport Technology</h4>
+                    <p>Price= 1,000,000 Zoodle</p>
+                    <button type="button" class="btn btn-dark btn-rounded" id = "transportTechnology">Purchase</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+          <span>Wallet Connected: </span>
+          <span id = "mm-detected"></span>
+          <a href="#topOfPage"><br>Return to top</a>
+        </div>
+    </footer>
+
+</body>
+
+
+<script src="dapp.js"></script>
+
+
+
+
+</html>

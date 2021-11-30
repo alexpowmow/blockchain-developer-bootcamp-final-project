@@ -4,14 +4,234 @@ console.log("Test phrase");
 
 totalZoodle = 0;
 upgradeTracker = 5;
+const testContractAddress = '0x0F73620D76ab869B911A6cf76746c8Da414d0e6E';
+const testContractAbi = [
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "previousOwner",
+            "type": "address"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+      },
+      {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "recipient",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "giftAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "giftZoodle",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getZoodle",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          }
+        ],
+        "name": "getBadge",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+              },
+              {
+                "internalType": "enum TestContract.State",
+                "name": "status",
+                "type": "uint8"
+              },
+              {
+                "internalType": "address",
+                "name": "badgeOwner",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct TestContract.Badge",
+            "name": "",
+            "type": "tuple"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+      },
+      {
+        "inputs": [],
+        "name": "getUpgrades",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function",
+        "constant": true
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "zoodleAccrued",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "upgradesAccrued",
+            "type": "uint256"
+          }
+        ],
+        "name": "saveProfile",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "purchaseItem1",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "purchaseItem2",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "purchaseItem3",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "purchaseItem4",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          }
+        ],
+        "name": "claimBadge",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+]
 
-window.addEventListener('load', function(){
+window.addEventListener('load', async function(){
     displayNewMiningPower(upgradeTracker);
     if(typeof window.ethereum !== 'undefined'){
         let mmDetected = document.getElementById('mm-detected');
         mmDetected.innerHTML = "None";
         var web3 = new Web3(window.ethereum);
-       
+        result0 = await testContract.methods.getBadge(0).call({from: '0xA729C0F7eC1175D43728116270824843f8E63066'});
+        address0 = result0[3];
+        displayNewBadgeOwner(0,address0);
+
+        result1 = await testContract.methods.getBadge(1).call({from: '0xA729C0F7eC1175D43728116270824843f8E63066'});
+        address1 = result1[3];
+        displayNewBadgeOwner(1,address1);
+
+        result2 = await testContract.methods.getBadge(2).call({from: '0xA729C0F7eC1175D43728116270824843f8E63066'});
+        address2 = result2[3];
+        displayNewBadgeOwner(2,address2);
+
+
     }else{
         let mmDetected = document.getElementById('mm-detected');
         mmDetected.innerHTML = "MetaMask Not Detected";
@@ -40,102 +260,104 @@ mmEnable.onclick = async () =>{
 }
 
 
-const testContractAddress = '0x01bd6231e7F90c0BA5c9d146ABbb669907046c60';
-const testContractAbi = [
-  {
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "getZoodle",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
-    "name": "getUpgrades",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "zoodleAccrued",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "upgradesAccrued",
-        "type": "uint256"
-      }
-    ],
-    "name": "saveProfile",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "purchaseItem1",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "purchaseItem2",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "purchaseItem3",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "purchaseItem4",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
-  ];
+// const testContractAddress = '0x01bd6231e7F90c0BA5c9d146ABbb669907046c60';
+// const testContractAbi = [
+//   {
+//     "inputs": [],
+//     "stateMutability": "nonpayable",
+//     "type": "constructor"
+//   },
+//   {
+//     "inputs": [],
+//     "name": "owner",
+//     "outputs": [
+//       {
+//         "internalType": "address",
+//         "name": "",
+//         "type": "address"
+//       }
+//     ],
+//     "stateMutability": "view",
+//     "type": "function",
+//     "constant": true
+//   },
+//   {
+//     "inputs": [],
+//     "name": "getZoodle",
+//     "outputs": [
+//       {
+//         "internalType": "uint256",
+//         "name": "",
+//         "type": "uint256"
+//       }
+//     ],
+//     "stateMutability": "view",
+//     "type": "function",
+//     "constant": true
+//   },
+//   {
+//     "inputs": [],
+//     "name": "getUpgrades",
+//     "outputs": [
+//       {
+//         "internalType": "uint256",
+//         "name": "",
+//         "type": "uint256"
+//       }
+//     ],
+//     "stateMutability": "view",
+//     "type": "function",
+//     "constant": true
+//   },
+//   {
+//     "inputs": [
+//       {
+//         "internalType": "uint256",
+//         "name": "zoodleAccrued",
+//         "type": "uint256"
+//       },
+//       {
+//         "internalType": "uint256",
+//         "name": "upgradesAccrued",
+//         "type": "uint256"
+//       }
+//     ],
+//     "name": "saveProfile",
+//     "outputs": [],
+//     "stateMutability": "nonpayable",
+//     "type": "function"
+//   },
+//   {
+//     "inputs": [],
+//     "name": "purchaseItem1",
+//     "outputs": [],
+//     "stateMutability": "nonpayable",
+//     "type": "function"
+//   },
+//   {
+//     "inputs": [],
+//     "name": "purchaseItem2",
+//     "outputs": [],
+//     "stateMutability": "nonpayable",
+//     "type": "function"
+//   },
+//   {
+//     "inputs": [],
+//     "name": "purchaseItem3",
+//     "outputs": [],
+//     "stateMutability": "nonpayable",
+//     "type": "function"
+//   },
+//   {
+//     "inputs": [],
+//     "name": "purchaseItem4",
+//     "outputs": [],
+//     "stateMutability": "nonpayable",
+//     "type": "function"
+//   }
+//   ];
+
+
 
 const testContract = new web3.eth.Contract(testContractAbi, testContractAddress);
 testContract.setProvider(window.ethereum);
@@ -208,6 +430,38 @@ transportTechnology = document.getElementById("transportTechnology");
         }
     }
 
+
+badge1 = document.getElementById("0Badge");
+    badge1.onclick = async() =>{
+        if(totalZoodle >= 100){
+            await testContract.methods.claimBadge(0).send({from: accounts[0]});
+            displayNewBadgeOwner(0, accounts[0]);
+            
+        } else{
+            alert("Insufficient funds");
+        }
+    }
+badge2 = document.getElementById("1Badge");
+    badge2.onclick = async() =>{
+        if(totalZoodle >= 100000){
+            await testContract.methods.claimBadge(1).send({from: accounts[0]});
+            displayNewBadgeOwner(1, accounts[0]);
+            
+        } else{
+            alert("Insufficient funds");
+        }
+    }
+badge3 = document.getElementById("2Badge");
+    badge3.onclick = async() =>{
+        if(totalZoodle >= 1000000){
+            await testContract.methods.claimBadge(2).send({from: accounts[0]});
+            displayNewBadgeOwner(2, accounts[0]);
+            
+        } else{
+            alert("Insufficient funds");
+        }
+    }
+
 clicka = document.getElementById("clicka");
     clicka.onclick = async() =>{
         increaseCount(upgradeTracker);
@@ -240,4 +494,17 @@ function displayNewAmount(totalZoodle){
 function displayNewMiningPower(upgradeTracker){
     newMining = document.getElementById("miningPower");
     newMining.innerHTML = upgradeTracker + "<br>";
+}
+
+function displayNewBadgeOwner(id,address){
+
+    if(address == 0x00){
+        console.log("Unowned");
+    }else{
+        badgeTag = document.getElementById(`b${id}Owner`);
+        var badgeButton = document.getElementById(`${id}Badge`);
+        badgeButton.className = "notMetaConnected";
+        badgeButton.innerHTML = "Owned";
+        badgeTag.innerHTML = "Owned By: \n" + address;
+    }
 }

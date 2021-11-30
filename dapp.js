@@ -4,12 +4,62 @@ console.log("Test phrase");
 
 totalZoodle = 0;
 upgradeTracker = 5;
-const testContractAddress = '0x0F73620D76ab869B911A6cf76746c8Da414d0e6E';
+const testContractAddress = '0x739614aE3445C12cfB9AAF3a947E8c6cf577901D';
 const testContractAbi = [
     {
         "inputs": [],
         "stateMutability": "nonpayable",
         "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "badgeId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "enum TestContract.State",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          }
+        ],
+        "name": "BadgeClaimed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "purchaser",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "price",
+            "type": "uint256"
+          }
+        ],
+        "name": "ItemPurchase",
+        "type": "event"
       },
       {
         "anonymous": false,
@@ -28,6 +78,25 @@ const testContractAbi = [
           }
         ],
         "name": "OwnershipTransferred",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "recipient",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "giftAmount",
+            "type": "uint256"
+          }
+        ],
+        "name": "ZoodleGifted",
         "type": "event"
       },
       {
@@ -231,7 +300,6 @@ window.addEventListener('load', async function(){
         address2 = result2[3];
         displayNewBadgeOwner(2,address2);
 
-
     }else{
         let mmDetected = document.getElementById('mm-detected');
         mmDetected.innerHTML = "MetaMask Not Detected";
@@ -247,7 +315,7 @@ var web3 = new Web3(window.ethereum);
 mmEnable = document.getElementById('mm-connect');
 var accounts;
 mmEnable.onclick = async () =>{
-    console.log('beep!');
+    //console.log('beep!');
     await ethereum.request({method:'eth_requestAccounts'});
     var mmDetected = document.getElementById('mm-detected');
     accounts = await ethereum.request({ method: 'eth_accounts' })
@@ -258,104 +326,6 @@ mmEnable.onclick = async () =>{
     metaButtonText.innerHTML = "MetaMask Connected";
    
 }
-
-
-// const testContractAddress = '0x01bd6231e7F90c0BA5c9d146ABbb669907046c60';
-// const testContractAbi = [
-//   {
-//     "inputs": [],
-//     "stateMutability": "nonpayable",
-//     "type": "constructor"
-//   },
-//   {
-//     "inputs": [],
-//     "name": "owner",
-//     "outputs": [
-//       {
-//         "internalType": "address",
-//         "name": "",
-//         "type": "address"
-//       }
-//     ],
-//     "stateMutability": "view",
-//     "type": "function",
-//     "constant": true
-//   },
-//   {
-//     "inputs": [],
-//     "name": "getZoodle",
-//     "outputs": [
-//       {
-//         "internalType": "uint256",
-//         "name": "",
-//         "type": "uint256"
-//       }
-//     ],
-//     "stateMutability": "view",
-//     "type": "function",
-//     "constant": true
-//   },
-//   {
-//     "inputs": [],
-//     "name": "getUpgrades",
-//     "outputs": [
-//       {
-//         "internalType": "uint256",
-//         "name": "",
-//         "type": "uint256"
-//       }
-//     ],
-//     "stateMutability": "view",
-//     "type": "function",
-//     "constant": true
-//   },
-//   {
-//     "inputs": [
-//       {
-//         "internalType": "uint256",
-//         "name": "zoodleAccrued",
-//         "type": "uint256"
-//       },
-//       {
-//         "internalType": "uint256",
-//         "name": "upgradesAccrued",
-//         "type": "uint256"
-//       }
-//     ],
-//     "name": "saveProfile",
-//     "outputs": [],
-//     "stateMutability": "nonpayable",
-//     "type": "function"
-//   },
-//   {
-//     "inputs": [],
-//     "name": "purchaseItem1",
-//     "outputs": [],
-//     "stateMutability": "nonpayable",
-//     "type": "function"
-//   },
-//   {
-//     "inputs": [],
-//     "name": "purchaseItem2",
-//     "outputs": [],
-//     "stateMutability": "nonpayable",
-//     "type": "function"
-//   },
-//   {
-//     "inputs": [],
-//     "name": "purchaseItem3",
-//     "outputs": [],
-//     "stateMutability": "nonpayable",
-//     "type": "function"
-//   },
-//   {
-//     "inputs": [],
-//     "name": "purchaseItem4",
-//     "outputs": [],
-//     "stateMutability": "nonpayable",
-//     "type": "function"
-//   }
-//   ];
 
 
 
@@ -466,7 +436,7 @@ clicka = document.getElementById("clicka");
     clicka.onclick = async() =>{
         increaseCount(upgradeTracker);
         displayNewAmount(totalZoodle);
-        console.log(totalZoodle);
+        //console.log(totalZoodle);
     }
 
 function increaseCount(increaseAmount){
@@ -499,7 +469,7 @@ function displayNewMiningPower(upgradeTracker){
 function displayNewBadgeOwner(id,address){
 
     if(address == 0x00){
-        console.log("Unowned");
+        //console.log("Unowned");
     }else{
         badgeTag = document.getElementById(`b${id}Owner`);
         var badgeButton = document.getElementById(`${id}Badge`);

@@ -7,3 +7,11 @@ In my contract I use requires to make sure that function parameters are above a 
 
 Use Modifiers Only for Validation 
 I have one modifier in my contract. This modifier is used to check the state of my badge object. If someone wants to claim a badge, it must be unowned. That is why I use the isUnowned modifier on the claimBadge function to ensure that the badge is unowned before someone attempts to claim it. 
+
+BY SWC NUMBER:
+
+BLOCK GAS LIMIT DoS (SWC-128):
+I use a dynamically sized array in my contract which can lead to issues with Block gas limit. However, I initialize the array with 3 values through thr constructor and include no functions to add upon this array. I also use no loops in my contract. By doing this I prevent the possibility of a loop going on for an undefined time. 
+
+TX.ORIGIN AUTHENTICATION (SWC-115):
+By using an imported ownable contract from OpenZepplin I completely eliminated the need to use tx.origin. Therefore, I do not use it for any type of validation and avoid an issue of someone exploiting my contract in that way. 

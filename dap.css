@@ -1,9 +1,10 @@
 .header {
     padding: 20px;
     text-align: center;
-    background: #024a24;
-    color:white;
+    background: beige;
+    color:black;
     font-size: 30px;
+    font-family:'Times New Roman';
   }
   .fontDefault{
       font-size: 15px;
@@ -46,7 +47,7 @@
 
 .notMetaConnected{
     appearance: none;
-    background-color:red;
+    background-color:rgb(207, 0, 0);
     border: 1px solid rgba(27, 31, 35, .15);
     border-radius: 6px;
     box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
@@ -83,6 +84,13 @@
     /* background-color: #34ebeb ; */
     border: 5px inset purple;
     text-align: center;
+
+}
+
+  #Badge1, #Badge2, #Badge3{
+  /* background-color: #34ebeb ; */
+  border: 5px inset purple;
+  text-align: center;
 
 }
 
@@ -133,6 +141,23 @@ body{
 span{
     font-family: Impact;
     color:rgb(4, 9, 107);
+}
+
+#subHeader1{
+  font-family: Impact;
+  color:rgb(4, 9, 107);
+}
+
+.zoodleBadge{
+  width: 100%;
+  height: 60%; 
+  object-fit: contain;
+  margin-bottom: 30px;
+}
+
+.badgeTagStyle{
+  padding: 4px 4px 6px 6px;
+  word-wrap: break-word;
 }
 
 
